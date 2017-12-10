@@ -6,6 +6,7 @@ I got the template for this off someone's repo many years ago, long before I got
 
 ## Installation:
 
+```
  1.   vim /etc/ssh/sshd_config
       PrintMotd no
 
@@ -17,4 +18,4 @@ I got the template for this off someone's repo many years ago, long before I got
 
  4.   Then of course drop this file at
       /usr/local/bin/dynmotd
-
+```
