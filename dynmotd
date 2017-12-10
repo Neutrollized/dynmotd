@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Installation:
+#
+# 1.   vim /etc/ssh/sshd_config
+#      PrintMotd no
+#
+# 2.   vim /etc/pam.d/login
+#      # session optional pam_motd.so
+#
+# 3.   vim /etc/profile
+#      /usr/local/bin/dynmotd # Place at the bottom
+#
+# 4.   Then of course drop this file at
+#      /usr/local/bin/dynmotd
+#
+
+#-------------------------------------------------------------------------#
+
+USER=$(whoami)
+HOSTNAME=$(uname -n)
+IP=$(hostname -i)
+KERNEL=$(uname -r)
+
+CPU=$(cat /proc/cpuinfo | grep "processor" | wc -l)
+MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
+SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
+PSA=$(ps -Afl | wc -l)
+ZOMBIE=$(pgrep defunct | wc -l)
+
+#System uptime
+uptime=$(cat /proc/uptime | cut -f1 -d.)
+upDays=$((uptime/60/60/24))
+upHours=$((uptime/60/60%24))
+upMins=$((uptime/60%60))
+upSecs=$((uptime%60))
+
+#System load
+LOAD1=`cat /proc/loadavg | awk {'print $1'}`
+LOAD5=`cat /proc/loadavg | awk {'print $2'}`
+LOAD15=`cat /proc/loadavg | awk {'print $3'}`
+
+#---------------------------------------------------------------------------#
+
+COLOR_COLUMN="\e[1m-"
+COLOR_VALUE="\e[31m"
+RESET_COLORS="\e[0m"
+
+echo -e "
+     )|  | __| |  _  /
+       _ | _|  |    /  Red Hat Enterprise 7
+  _|\_| _|___|___| /
+
+===========================================================================
+ ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
+ ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} `cat /etc/redhat-release` ${RESET_COLORS}
+ ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
+ ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} $(tuned-adm active | awk -F ": " '{print $2}') ${RESET_COLORS}
+ ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently `users | wc -w` user(s) logged on ${RESET_COLORS}
+===========================================================================
+ ${COLOR_COLUMN}- Current user${RESET_COLORS}.......: ${COLOR_VALUE} ${USER} ${RESET_COLORS}
+ ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU} ${RESET_COLORS}
+ ${COLOR_COLUMN}- Load average${RESET_COLORS}.......: ${COLOR_VALUE} ${LOAD1} - ${LOAD5} - ${LOAD15} (1-5-15 min) ${RESET_COLORS}
+ ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}
+ ${COLOR_COLUMN}- Swap${RESET_COLORS}...............: ${COLOR_VALUE} ${SWAP} (total-used-free) ${RESET_COLORS}
+ ${COLOR_COLUMN}- Processes${RESET_COLORS}..........: ${COLOR_VALUE} ${PSA} running - ${ZOMBIE} zombies ${RESET_COLORS}
+ ${COLOR_COLUMN}- System uptime${RESET_COLORS}......: ${COLOR_VALUE} ${upDays} days ${upHours} hours ${upMins} minutes ${upSecs} seconds ${RESET_COLORS}
+===========================================================================
+"
