@@ -1,21 +1,5 @@
 #!/bin/bash
 
-# Installation:
-#
-# 1.   vim /etc/ssh/sshd_config
-#      PrintMotd no
-#
-# 2.   vim /etc/pam.d/login
-#      # session optional pam_motd.so
-#
-# 3.   vim /etc/profile
-#      /usr/local/bin/dynmotd # Place at the bottom
-#
-# 4.   Then of course drop this file at
-#      /usr/local/bin/dynmotd
-#
-
-#-------------------------------------------------------------------------#
 
 USER=$(whoami)
 HOSTNAME=$(uname -n)
@@ -36,9 +20,9 @@ upMins=$((uptime/60%60))
 upSecs=$((uptime%60))
 
 #System load
-LOAD1=`cat /proc/loadavg | awk {'print $1'}`
-LOAD5=`cat /proc/loadavg | awk {'print $2'}`
-LOAD15=`cat /proc/loadavg | awk {'print $3'}`
+LOAD1=$(cat /proc/loadavg | awk '{print $1}')
+LOAD5=$(cat /proc/loadavg | awk '{print $2}')
+LOAD15=$(cat /proc/loadavg | awk '{print $3}')
 
 #---------------------------------------------------------------------------#
 
@@ -53,10 +37,10 @@ echo -e "
 
 ===========================================================================
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
- ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} `cat /etc/redhat-release` ${RESET_COLORS}
+ ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} $(cat /etc/redhat-release) ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} $(tuned-adm active | awk -F ": " '{print $2}') ${RESET_COLORS}
- ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently `users | wc -w` user(s) logged on ${RESET_COLORS}
+ ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ===========================================================================
  ${COLOR_COLUMN}- Current user${RESET_COLORS}.......: ${COLOR_VALUE} ${USER} ${RESET_COLORS}
  ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU} ${RESET_COLORS}
