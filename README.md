@@ -13,8 +13,8 @@ I got the template for this off someone's repo many years ago, long before I got
  2.   vim /etc/pam.d/login
       # session optional pam_motd.so
 
- 3.   vim /etc/profile
-      /usr/local/bin/dynmotd # Place at the bottom
+ 3.   vim /etc/profile.d/dynmotd.sh
+      /usr/local/bin/dynmotd
 
  4.   Then of course drop this file at
       /usr/local/bin/dynmotd
