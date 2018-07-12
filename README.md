@@ -11,14 +11,14 @@ I got the template for this off someone's repo many years ago, long before I got
 
 ```
  1.   vim /etc/ssh/sshd_config  (this is optional; if you have `PrintMotd yes`, then you'll get the static motd as well as the `dynmotd` output)
-      `PrintMotd no`
+      PrintMotd no
 
  2.   vi /etc/pam.d/login  (if applicable)
-      `# session optional pam_motd.so`
+      # session optional pam_motd.so
 
- 3.   vi /etc/profile.d/dynmotd.sh (mode: `0644`)
-      `/usr/local/bin/dynmotd`
+ 3.   vi /etc/profile.d/dynmotd.sh (mode: 0644)
+      /usr/local/bin/dynmotd
 
  4.   Then of course drop this file in:
-      `/usr/local/bin/`
+      /usr/local/bin/
 ```
