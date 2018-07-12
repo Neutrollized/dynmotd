@@ -1,10 +1,12 @@
 #!/bin/bash
 
 
-USER=$(whoami)
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
+OS_RHEL=$(cat /etc/redhat-release)
+#OS_DEB=$(lsb_release -ds)
 KERNEL=$(uname -r)
+USER=$(whoami)
 
 CPU=$(cat /proc/cpuinfo | grep "processor" | wc -l)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
@@ -12,17 +14,17 @@ SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
 ZOMBIE=$(pgrep defunct | wc -l)
 
+#System load
+LOAD1=$(cat /proc/loadavg | awk '{print $1}')
+LOAD5=$(cat /proc/loadavg | awk '{print $2}')
+LOAD15=$(cat /proc/loadavg | awk '{print $3}')
+
 #System uptime
 uptime=$(cat /proc/uptime | cut -f1 -d.)
 upDays=$((uptime/60/60/24))
 upHours=$((uptime/60/60%24))
 upMins=$((uptime/60%60))
 upSecs=$((uptime%60))
-
-#System load
-LOAD1=$(cat /proc/loadavg | awk '{print $1}')
-LOAD5=$(cat /proc/loadavg | awk '{print $2}')
-LOAD15=$(cat /proc/loadavg | awk '{print $3}')
 
 #---------------------------------------------------------------------------#
 
@@ -37,7 +39,7 @@ echo -e "
 
 ===========================================================================
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
- ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} $(cat /etc/redhat-release) ${RESET_COLORS}
+ ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_RHEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} $(tuned-adm active | awk -F ": " '{print $2}') ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
