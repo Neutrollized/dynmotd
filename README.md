@@ -10,7 +10,7 @@ I got the template for this off someone's repo many years ago, long before I got
 ## Installation:
 
 ```
- 1.   vim /etc/ssh/sshd_config  (this is optional; if you have `PrintMotd yes`, then you'll get the static motd as well as the `dynmotd` output)
+ 1.   vi /etc/ssh/sshd_config  (this is optional; if you have `PrintMotd yes`, then you'll get the static motd as well as the `dynmotd` output)
       PrintMotd no
 
  2.   vi /etc/pam.d/login  (if applicable)
