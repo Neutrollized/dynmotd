@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
 OS_RHEL=$(cat /etc/redhat-release)
@@ -9,19 +7,19 @@ OS_RHEL=$(cat /etc/redhat-release)
 KERNEL=$(uname -r)
 USER=$(whoami)
 
-CPU=$(cat /proc/cpuinfo | grep "processor" | wc -l)
+CPU=$(grep "processor" /proc/cpuinfo | wc -l)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
 ZOMBIE=$(pgrep defunct | wc -l)
 
 #System load
-LOAD1=$(cat /proc/loadavg | awk '{print $1}')
-LOAD5=$(cat /proc/loadavg | awk '{print $2}')
-LOAD15=$(cat /proc/loadavg | awk '{print $3}')
+LOAD1=$(awk '{print $1}' < /proc/loadavg)
+LOAD5=$(awk '{print $2}' < /proc/loadavg)
+LOAD15=$(awk '{print $3}' < /proc/loadavg)
 
 #System uptime
-uptime=$(cat /proc/uptime | cut -f1 -d.)
+uptime=$(cut -f1 -d. < /proc/uptime)
 upDays=$((uptime/60/60/24))
 upHours=$((uptime/60/60%24))
 upMins=$((uptime/60%60))
