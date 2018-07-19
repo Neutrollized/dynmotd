@@ -7,7 +7,7 @@ OS_RHEL=$(cat /etc/redhat-release)
 KERNEL=$(uname -r)
 USER=$(whoami)
 
-CPU=$(grep "processor" /proc/cpuinfo | wc -l)
+CPU=$(grep -c "processor" /proc/cpuinfo)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
@@ -55,9 +55,9 @@ echo -e "
  ${COLOR_COLUMN}- Processes${RESET_COLORS}..........: ${COLOR_VALUE} ${PSA} running - ${ZOMBIE} zombies ${RESET_COLORS}
  ${COLOR_COLUMN}- System uptime${RESET_COLORS}......: ${COLOR_VALUE} ${upDays} days ${upHours} hours ${upMins} minutes ${upSecs} seconds ${RESET_COLORS}"
 
-if [ -d ${CUSTOM_CHECKS_DIR} ]; then
-    for i in ${CUSTOM_CHECKS_DIR}/*.sh; do
-        . ${i}
+if [ -d ${CUSTOM_CHECKS_DIR} ] && [ ! -z "$(ls -A ${CUSTOM_CHECKS_DIR})" ]; then
+    for i in "${CUSTOM_CHECKS_DIR}"/*.sh; do
+        . "${i}"
     done
 fi
 
