@@ -21,4 +21,6 @@ I got the template for this off someone's repo many years ago, long before I got
 
  4.   Then of course drop this file in:
       /usr/local/bin/
+
+ 5.   Create an optional folder (default: /etc/dynmotd.d) in which you can place custom scripts for checking additional items (file system, services, ports, etc. -- this is optional)
 ```

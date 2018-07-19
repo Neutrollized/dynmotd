@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
 OS_RHEL=$(cat /etc/redhat-release)
@@ -26,6 +27,10 @@ upHours=$((uptime/60/60%24))
 upMins=$((uptime/60%60))
 upSecs=$((uptime%60))
 
+
+#Additional checks can be placed in this directory on the server
+CUSTOM_CHECKS_DIR='/etc/dynmotd.d'
+
 #---------------------------------------------------------------------------#
 
 COLOR_COLUMN="\e[1m-"
@@ -50,6 +55,13 @@ echo -e "
  ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}
  ${COLOR_COLUMN}- Swap${RESET_COLORS}...............: ${COLOR_VALUE} ${SWAP} (total-used-free) ${RESET_COLORS}
  ${COLOR_COLUMN}- Processes${RESET_COLORS}..........: ${COLOR_VALUE} ${PSA} running - ${ZOMBIE} zombies ${RESET_COLORS}
- ${COLOR_COLUMN}- System uptime${RESET_COLORS}......: ${COLOR_VALUE} ${upDays} days ${upHours} hours ${upMins} minutes ${upSecs} seconds ${RESET_COLORS}
-===========================================================================
-"
+ ${COLOR_COLUMN}- System uptime${RESET_COLORS}......: ${COLOR_VALUE} ${upDays} days ${upHours} hours ${upMins} minutes ${upSecs} seconds ${RESET_COLORS}"
+
+if [ -d ${CUSTOM_CHECKS_DIR} ]; then
+    for i in ${CUSTOM_CHECKS_DIR}/*.sh; do
+        . ${i}
+    done
+fi
+
+echo '==========================================================================='
+echo ''
