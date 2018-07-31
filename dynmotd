@@ -7,6 +7,13 @@ OS_RHEL=$(cat /etc/redhat-release)
 KERNEL=$(uname -r)
 USER=$(whoami)
 
+if command -v tuned-adm 1>/dev/null
+then
+	TUNED=$(tuned-adm active | head -1 | awk -F ": " '{print $2}')
+else
+	TUNED='N/A'
+fi
+
 CPU=$(grep -c "processor" /proc/cpuinfo)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
@@ -44,7 +51,7 @@ echo -e "
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
  ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_RHEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
- ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} $(tuned-adm active | awk -F ": " '{print $2}') ${RESET_COLORS}
+ ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} ${TUNED} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ===========================================================================
  ${COLOR_COLUMN}- Current user${RESET_COLORS}.......: ${COLOR_VALUE} ${USER} ${RESET_COLORS}
