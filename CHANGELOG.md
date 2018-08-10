@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.1.0] - 2018-07-19
 ### Changed
-- Someof the way some commands were run so shellcheck won't warn (i.e. [SC2002], [SC2046], [SC2086], etc.)
+- Some of the way some commands were run so shellcheck won't warn (i.e. [SC2002], [SC2046], [SC2086], etc.)
 ### Added
 - Will now look for a directory (default `/etc/dynmotd.d`) with custom scripts for addtional things you would like to check on that server.  See [examples](https://github.com/Neutrollized/dynmotd/tree/master/example/dynmotd.d)
 
@@ -25,4 +25,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.0] - 2017-12-11
 ### Added
-- Initial commit
+- Initial release
