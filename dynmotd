@@ -4,6 +4,7 @@ HOSTNAME=$(uname -n)
 IP=$(hostname -i)
 OS_RHEL=$(cat /etc/redhat-release)
 #OS_DEB=$(lsb_release -ds)
+#OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
 KERNEL=$(uname -r)
 USER=$(whoami)
 
