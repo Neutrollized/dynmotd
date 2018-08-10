@@ -2,6 +2,7 @@
 
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
+#IP=$(getent hosts $(hostname -s) | awk '{print $1}')
 OS_RHEL=$(cat /etc/redhat-release)
 #OS_DEB=$(lsb_release -ds)
 #OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')

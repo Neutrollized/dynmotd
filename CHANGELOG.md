@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.1.1] - 2018-08-10
 ### Added
 - CoreOS find version (PRETTY_NAME)
+- Another option to obtain the IPv4 address via `getent hosts` as certain distributions will return the IPv6 address when using `hostname -i`
 
 ## [1.1.0] - 2018-07-19
 ### Changed
