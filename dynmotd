@@ -7,7 +7,6 @@ OS_RHEL=$(cat /etc/redhat-release)
 #OS_DEB=$(lsb_release -ds)
 #OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
 KERNEL=$(uname -r)
-USER=$(whoami)
 
 if command -v tuned-adm 1>/dev/null
 then
@@ -56,7 +55,6 @@ echo -e "
  ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} ${TUNED} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ===========================================================================
- ${COLOR_COLUMN}- Current user${RESET_COLORS}.......: ${COLOR_VALUE} ${USER} ${RESET_COLORS}
  ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU} ${RESET_COLORS}
  ${COLOR_COLUMN}- Load average${RESET_COLORS}.......: ${COLOR_VALUE} ${LOAD1} - ${LOAD5} - ${LOAD15} (1-5-15 min) ${RESET_COLORS}
  ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}

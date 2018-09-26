@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.2] - 2018-09-25
+### Removed
+- `Current user` in the output as I want to keep it concise & useful
+
 ## [1.1.1] - 2018-08-10
 ### Added
 - CoreOS find version (PRETTY_NAME)
