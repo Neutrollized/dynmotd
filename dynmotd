@@ -8,12 +8,12 @@ OS_RHEL=$(cat /etc/redhat-release)
 #OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
 KERNEL=$(uname -r)
 
-if command -v tuned-adm 1>/dev/null
-then
-	TUNED=$(tuned-adm active | head -1 | awk -F ": " '{print $2}')
-else
-	TUNED='N/A'
-fi
+#if command -v tuned-adm 1>/dev/null
+#then
+#	TUNED=$(tuned-adm active | head -1 | awk -F ": " '{print $2}')
+#else
+#	TUNED='N/A'
+#fi
 
 CPU=$(grep -c "processor" /proc/cpuinfo)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
@@ -44,15 +44,10 @@ COLOR_VALUE="\e[31m"
 RESET_COLORS="\e[0m"
 
 echo -e "
-     )|  | __| |  _  /
-       _ | _|  |    /  Red Hat Enterprise 7
-  _|\_| _|___|___| /
-
 ===========================================================================
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
  ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_RHEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
- ${COLOR_COLUMN}- tuned profile${RESET_COLORS}......: ${COLOR_VALUE} ${TUNED} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ===========================================================================
  ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU} ${RESET_COLORS}
