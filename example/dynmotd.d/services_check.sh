@@ -9,7 +9,7 @@ JENKINS_SVC=$(systemctl status jenkins | grep 'Active:' | awk '{ print $2 }')
 RUNDECKD_SVC=$(systemctl status rundeckd | grep 'Active:' | awk '{ print $2 }')
 SUPERVISORD_SVC=$(systemctl status supervisord | grep 'Active:' | awk '{ print $2 }')
 
-echo -e "===== SERVICES ============================================================
+echo -e "===== SERVICES ===============================================================
  $COLOR_COLUMN- docker$RESET_COLORS.............: $COLOR_VALUE ${DOCKER_SVC}$RESET_COLORS
  $COLOR_COLUMN- jenkins$RESET_COLORS............: $COLOR_VALUE ${JENKINS_SVC}$RESET_COLORS
  $COLOR_COLUMN- rundeckd$RESET_COLORS...........: $COLOR_VALUE ${RUNDECKD_SVC}$RESET_COLORS
