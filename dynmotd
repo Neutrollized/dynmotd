@@ -3,10 +3,11 @@
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
 #IP=$(getent hosts $(hostname -s) | awk '{print $1}')
-OS_RHEL=$(cat /etc/redhat-release)
-#OS_DEB=$(lsb_release -ds)
+OS_DEB=$(lsb_release -ds)
+#OS_RHEL=$(cat /etc/redhat-release)
 #OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
 KERNEL=$(uname -r)
+#AWS_INSTANCE_ID=$(cat /sys/devices/virtual/dmi/id/board_asset_tag)
 
 #if command -v tuned-adm 1>/dev/null
 #then
@@ -46,7 +47,7 @@ RESET_COLORS="\e[0m"
 echo -e "
 ==============================================================================
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
- ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_RHEL} ${RESET_COLORS}
+ ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_DEB} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ==============================================================================
