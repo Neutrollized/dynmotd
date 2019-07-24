@@ -24,3 +24,26 @@ I got the template for this off someone's repo many years ago, long before I got
 
  5.   Create an optional folder (default: /etc/dynmotd.d) in which you can place custom scripts for checking additional items (file system, services, ports, etc. -- this is optional)
 ```
+
+
+## Sample output:
+
+```
+==============================================================================
+ -- Hostname...........:  ip-123-45-67-89 (123.45.67.89)
+ -- OS version.........:  Ubuntu 18.04.2 LTS
+ -- Kernel release.....:  4.15.0-1043-aws
+ -- Instance ID........:  i-a1b2c3d4e5f6g7h8i9
+ -- Users..............:  Currently 1 user(s) logged on
+==============================================================================
+ -- CPUs...............:  2
+ -- Load average.......:  0.08 - 0.02 - 0.01 (1-5-15 min)
+ -- Memory.............:  3.8G - 1.4G - 1.4G (total-used-free)
+ -- Swap...............:  0B - 0B - 0B (total-used-free)
+ -- Processes..........:  104 running - 0 zombies
+ -- System uptime......:  3 days 23 hours 17 minutes 40 seconds
+===== SERVICES ===============================================================
+ -- docker.............:  active (running) since Sat 2019-07-20 02:08:09 UTC
+ -- jenkins............:  active (exited) since Sat 2019-07-20 02:08:09 UTC
+==============================================================================
+```
