@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.1.6] - 2019-08-11
 ### Changed
 - OS distribution now auto-detected
+### Added
+- Reports CPU model & speed
 
 ## [1.1.5] - 2019-07-26
 ### Added

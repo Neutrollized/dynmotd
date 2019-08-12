@@ -18,7 +18,8 @@ fi
 KERNEL=$(uname -r)
 #AWS_INSTANCE_ID=$(cat /sys/devices/virtual/dmi/id/board_asset_tag)
 
-CPU=$(grep -c "processor" /proc/cpuinfo)
+CPU_COUNT=$(grep -c 'processor' /proc/cpuinfo)
+CPU_MODEL=$(grep 'model name' /proc/cpuinfo | uniq | awk -F ': ' {'print $2'})
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
@@ -53,7 +54,7 @@ echo -e "
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ==============================================================================
- ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU} ${RESET_COLORS}
+ ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU_COUNT} x ${CPU_MODEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Load average${RESET_COLORS}.......: ${COLOR_VALUE} ${LOAD1} - ${LOAD5} - ${LOAD15} (1-5-15 min) ${RESET_COLORS}
  ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}
  ${COLOR_COLUMN}- Swap${RESET_COLORS}...............: ${COLOR_VALUE} ${SWAP} (total-used-free) ${RESET_COLORS}
