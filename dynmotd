@@ -3,18 +3,20 @@
 HOSTNAME=$(uname -n)
 IP=$(hostname -i)
 #IP=$(getent hosts $(hostname -s) | awk '{print $1}')
-OS_DEB=$(lsb_release -ds)
-#OS_RHEL=$(cat /etc/redhat-release)
-#OS_COREOS=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
+
+#OS distro
+if [ -f /etc/redhat-release ]; then
+	OS_VERSION=$(cat /etc/redhat-release)
+elif [ -f /etc/debian_version ]; then
+	OS_VERSION=$(lsb_release -ds)
+elif [ -f /etc/os-release ]; then
+	OS_VERSION=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
+else
+	OS_VERSION='Unrecognized Linux distribution'
+fi
+
 KERNEL=$(uname -r)
 #AWS_INSTANCE_ID=$(cat /sys/devices/virtual/dmi/id/board_asset_tag)
-
-#if command -v tuned-adm 1>/dev/null
-#then
-#	TUNED=$(tuned-adm active | head -1 | awk -F ": " '{print $2}')
-#else
-#	TUNED='N/A'
-#fi
 
 CPU=$(grep -c "processor" /proc/cpuinfo)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
@@ -47,7 +49,7 @@ RESET_COLORS="\e[0m"
 echo -e "
 ==============================================================================
  ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
- ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_DEB} ${RESET_COLORS}
+ ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_VERSION} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ==============================================================================
