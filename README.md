@@ -9,6 +9,8 @@ I got the template for this off someone's repo many years ago, long before I got
 
 ## Installation:
 
+You can run the `install.sh` script as root/with sudo or if you prefer manually:
+
 ```
  1.   vi /etc/ssh/sshd_config  (this is optional; if you have `PrintMotd yes`, then you'll get the static motd as well as the `dynmotd` output)
       PrintMotd no
@@ -36,6 +38,7 @@ I got the template for this off someone's repo many years ago, long before I got
  -- Instance ID........:  i-a1b2c3d4e5f6g7h8i9
  -- Users..............:  Currently 1 user(s) logged on
 ==============================================================================
+ -- Instance type......:  t3.small
  -- CPUs...............:  2 x Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
  -- Load average.......:  0.08 - 0.02 - 0.01 (1-5-15 min)
  -- Memory.............:  3.8G - 1.4G - 1.4G (total-used-free)
