@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.8] - 2019-09-25
+### Changed
+- redid the way the interal/private IP is obtained via the `hostname` command (as newer versions produces more output than one would need)
+### Added
+- extra (commented out) lines of optional commands to gather AWS-specific metadata such as public IP or public DNS name
+
 ## [1.1.7] - 2019-08-13
 ### Changed
 - redid the way AWS EC2 instance metadata is gathered (for instance id & instance type) 

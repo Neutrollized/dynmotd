@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOSTNAME=$(uname -n)
-IP=$(hostname -i)
+IP=$(hostname -I | awk '{print $1}')
 #IP=$(getent hosts $(hostname -s) | awk '{print $1}')
 KERNEL=$(uname -r)
 
@@ -19,6 +19,8 @@ fi
 # AWS-specific attributes
 #AWS_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id 2> /dev/null)
 #AWS_INSTANCE_TYPE=$(curl http://169.254.169.254/latest/meta-data/instance-type 2> /dev/null)
+#AWS_INSTANCE_PUBLIC_HOSTNAME=$(curl http://169.254.169.254/latest/meta-data/public-hostname> /dev/null)
+#AWS_INSTANCE_EXT_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4> /dev/null)
 
 CPU_COUNT=$(grep -c 'processor' /proc/cpuinfo)
 CPU_MODEL=$(grep 'model name' /proc/cpuinfo | uniq | awk -F ': ' {'print $2'})
