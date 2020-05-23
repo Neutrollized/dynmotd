@@ -28,7 +28,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 ```
 
 
-## Sample output:
+## Sample outputs:
 
 ```
 ==============================================================================
@@ -48,5 +48,27 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 ===== SERVICES ===============================================================
  -- docker.............:  active (running) since Sat 2019-07-20 02:08:09 UTC
  -- jenkins............:  active (exited) since Sat 2019-07-20 02:08:09 UTC
+==============================================================================
+```
+
+```
+==============================================================================
+ -- Hostname...........:  raspberrypi (12.34.56.78)
+ -- OS version.........:  Raspbian GNU/Linux 10 (buster)
+ -- Kernel release.....:  4.19.97-v7l+
+ -- Users..............:  Currently 3 user(s) logged on
+==============================================================================
+ -- CPUs...............:  4 x ARMv7 Processor rev 3 (v7l)
+ -- Load average.......:  0.04 - 0.05 - 0.09 (1-5-15 min)
+ -- Memory.............:  3.8Gi - 178Mi - 3.0Gi (total-used-free)
+ -- Swap...............:  99Mi - 0B - 99Mi (total-used-free)
+ -- Processes..........:  131 running - 0 zombies
+ -- System uptime......:  0 days 2 hours 9 minutes 21 seconds
+===== PI INFO ================================================================
+ -- Revision...........:  Raspberry Pi 4 Model B Rev 1.2
+ -- Temperature........:  45.0'C
+===== SERVICES ===============================================================
+ -- k3s................:  inactive (dead)
+ -- docker.............:  active (running) since Sat 2020-05-23 13:44:56 EDT
 ==============================================================================
 ```
