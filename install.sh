@@ -7,6 +7,7 @@ DYNMOTD_CUSTOM_SCRIPTS_PATH='/etc/dynmotd.d'
 
 cp ./dynmotd ${DYNMOTD_BIN_PATH}/dynmotd
 chmod 755 ${DYNMOTD_BIN_PATH}/dynmotd
+ln -s ${DYNMOTD_BIN_PATH}/dynmotd ${DYNMOTD_BIN_PATH}/dm
 
 echo "${DYNMOTD_BIN_PATH}/dynmotd" > /etc/profile.d/dynmotd.sh
 chmod 644 /etc/profile.d/dynmotd.sh
