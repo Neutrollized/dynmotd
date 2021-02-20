@@ -2,6 +2,10 @@
 
 HOSTNAME=$(uname -n)
 IP=$(hostname -I | awk '{print $1}')
+
+EXT_IP=$(curl -s ifconfig.me)
+EXT_IP=${EXT_IP:-None}
+
 #IP=$(getent hosts $(hostname -s) | awk '{print $1}')
 KERNEL=$(uname -r)
 
@@ -53,7 +57,7 @@ RESET_COLORS="\e[0m"
 
 echo -e "
 ==============================================================================
- ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP}) ${RESET_COLORS}
+ ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP} - ${EXT_IP}) ${RESET_COLORS}
  ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_VERSION} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
