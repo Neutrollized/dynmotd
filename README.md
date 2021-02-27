@@ -39,19 +39,20 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  ip-123-45-67-89 (123.45.67.89)
+ -- Hostname...........:  ip-123-45-67-89 (123.45.67.89 - 9.87.65.43)
  -- OS version.........:  Ubuntu 18.04.2 LTS
  -- Kernel release.....:  4.15.0-1043-aws
- -- Instance ID........:  i-a1b2c3d4e5f6g7h8i9
  -- Users..............:  Currently 1 user(s) logged on
 ==============================================================================
- -- Instance type......:  t3.small
  -- CPUs...............:  2 x Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
  -- Load average.......:  0.08 - 0.02 - 0.01 (1-5-15 min)
  -- Memory.............:  3.8G - 1.4G - 1.4G (total-used-free)
  -- Swap...............:  0B - 0B - 0B (total-used-free)
  -- Processes..........:  104 running - 0 zombies
  -- System uptime......:  3 days 23 hours 17 minutes 40 seconds
+===== GCP INSTANCE METADATA ==================================================
+ -- Project ID.........:  myproject-12345
+ -- Zone...............:  us-east1-a
 ===== SERVICES ===============================================================
  -- docker.............:  active (running) since Sat 2019-07-20 02:08:09 UTC
  -- jenkins............:  active (exited) since Sat 2019-07-20 02:08:09 UTC
@@ -60,7 +61,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  raspberrypi (12.34.56.78)
+ -- Hostname...........:  raspberrypi (12.34.56.78 - None)
  -- OS version.........:  Raspbian GNU/Linux 10 (buster)
  -- Kernel release.....:  4.19.97-v7l+
  -- Users..............:  Currently 3 user(s) logged on
