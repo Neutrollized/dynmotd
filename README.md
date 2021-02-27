@@ -40,23 +40,25 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  ip-123-45-67-89 (123.45.67.89 - 9.87.65.43)
- -- OS version.........:  Ubuntu 18.04.2 LTS
- -- Kernel release.....:  4.15.0-1043-aws
- -- Users..............:  Currently 1 user(s) logged on
+ -- Hostname...........:  myhostname (123.45.67.89 - 9.87.65.43)
+ -- OS version.........:  Ubuntu 20.04.2 LTS
+ -- Kernel release.....:  5.4.0-1037-gcp
+ -- Users..............:  Currently 2 user(s) logged on
 ==============================================================================
- -- CPUs...............:  2 x Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
- -- Load average.......:  0.08 - 0.02 - 0.01 (1-5-15 min)
- -- Memory.............:  3.8G - 1.4G - 1.4G (total-used-free)
+ -- CPUs...............:  1 x Intel(R) Xeon(R) CPU @ 2.30GHz
+ -- Load average.......:  0.00 - 0.00 - 0.00 (1-5-15 min)
+ -- Memory.............:  577Mi - 132Mi - 65Mi (total-used-free)
  -- Swap...............:  0B - 0B - 0B (total-used-free)
- -- Processes..........:  104 running - 0 zombies
- -- System uptime......:  3 days 23 hours 17 minutes 40 seconds
+ -- Processes..........:  109 running - 0 zombies
+ -- System uptime......:  0 days 8 hours 0 minutes 6 seconds
 ===== GCP INSTANCE METADATA ==================================================
  -- Project ID.........:  myproject-12345
+ -- Machine Type.......:  f1-micro
+ -- Preemptible........:  TRUE
  -- Zone...............:  us-east1-a
 ===== SERVICES ===============================================================
- -- docker.............:  active (running) since Sat 2019-07-20 02:08:09 UTC
- -- jenkins............:  active (exited) since Sat 2019-07-20 02:08:09 UTC
+ -- docker.............:  active (running) since Mon 2020-07-20 02:08:09 UTC
+ -- jenkins............:  active (exited) since Mon 2020-07-20 02:08:09 UTC
 ==============================================================================
 ```
 
