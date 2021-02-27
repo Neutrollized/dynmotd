@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.0.0] - 2021-02-27
 ### Added
+- requirement for `jq`
 - added scripts to pull some instance metadata info for GCP, AWS and Azure if it detects that VM is a cloud VM instance
 
 ## [1.1.11] - 2021-02-20
