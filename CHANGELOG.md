@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.0.1] - 2021-02-28
 ### Added
 - extra metadata for GCP
+### Changed
+- `jq` no longer a requirement
 
 ## [2.0.0] - 2021-02-27
 ### Added

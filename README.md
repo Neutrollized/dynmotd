@@ -8,11 +8,12 @@ I got the template for this off someone's repo many years ago, long before I got
 
 
 ## Requirements:
-For some of the data to be pulled and filtered successfully, make sure you have the following tools on your VM instance:
+For some of the data to be pulled and filtered successfully, make sure you have the following tools on your VM instance (should be standard on most Linux distributions, unless you have an insanely hardened image or something):
 - `curl`
 - `awk`
 - `xargs`
-- [`jq`](https://stedolan.github.io/jq/) (required if you're using v2.0.0+)
+- `basename`
+- `tr`
 
 
 ## Installation:

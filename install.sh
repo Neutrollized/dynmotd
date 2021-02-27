@@ -27,7 +27,7 @@ fi
 
 # check to see if VM belongs to one of the big 3 CSPs
 # done via checking against https://ipinfo.io/, getting the org and cutting out the asn
-IPINFO_ORG=$(curl -s ipinfo.io | jq -r '.org' | awk {'first = $1; $1=""; print $0'}|sed 's/^ //g')
+IPINFO_ORG=$(curl -s ipinfo.io/org | awk {'first = $1; $1=""; print $0'}|sed 's/^ //g')
 if [ 'Google LLC' = "${IPINFO_ORG}" ]
 then
   cp ./00_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
