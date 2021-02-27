@@ -10,7 +10,7 @@ I got the template for this off someone's repo many years ago, long before I got
 ## Requirements:
 For some of the data to be pulled and filtered successfully, make sure you have the following tools on your VM instance:
 - `curl`
-- `awk``
+- `awk`
 - [`jq`](https://stedolan.github.io/jq/) (required if you're using v2.0.0+)
 
 
