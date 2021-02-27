@@ -7,6 +7,13 @@ Dynamic MOTD for RHEL/Debian-based Linux distros
 I got the template for this off someone's repo many years ago, long before I got a GitHub account.  It was initially created for RHEL6, but I've made changes to it for RHEL7 as well as added my own banner on top.  I tried looking for the original so I could do a proper fork and give credit where credit is due, but there are now so many dynmotd repos on GitHub that it's honestly hard to figure out who I got it from.  In any case, you have my thanks and here's a *hat tip* to you, stranger.
 
 
+## Requirements:
+For some of the data to be pulled and filtered successfully, make sure you have the following tools on your VM instance:
+- `curl`
+- `awk``
+- [`jq`](https://stedolan.github.io/jq/) (required if you're using v2.0.0+)
+
+
 ## Installation:
 
 You can run the `install.sh` script as root/with sudo or if you prefer manually:

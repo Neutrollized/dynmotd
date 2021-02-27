@@ -13,13 +13,31 @@ echo "${DYNMOTD_BIN_PATH}/dynmotd" > /etc/profile.d/dynmotd.sh
 chmod 644 /etc/profile.d/dynmotd.sh
 
 mkdir -p ${DYNMOTD_CUSTOM_SCRIPTS_PATH}
+rm ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/00_*.sh
 
 
+# check to see if it's a Raspberry Pi
 cat /etc/os-release | grep -q 'Raspbian'
 if [ $? -eq 0 ]
 then
   # if you want to disable it afterwards, just rename the file so that id doesn't have an .sh extension (i.e .sh_disabled)
   cp ./00_raspberry_pi.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
+
+
+# check to see if VM belongs to one of the big 3 CSPs
+# done via checking against https://ipinfo.io/, getting the org and cutting out the asn
+IPINFO_ORG=$(curl -s ipinfo.io | jq -r '.org' | awk {'first = $1; $1=""; print $0'}|sed 's/^ //g')
+if [ 'Google LLC' = "${IPINFO_ORG}" ]
+then
+  cp ./00_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+elif [ 'Amazon.com, Inc.' = "${IPINFO_ORG}" ]
+then
+  cp ./00_aws.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+elif [ 'Microsoft Corporation' = "${IPINFO_ORG}" ]
+then
+  cp ./00_azure.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+fi
+
 
 dynmotd
