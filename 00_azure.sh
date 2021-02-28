@@ -5,7 +5,7 @@ API_VERSION=2020-09-01
 
 AZURE_RG=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/resourceGroupName?api-version=${API_VERSION}\&format=text)
 AZURE_VM_ID=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/vmId?api-version=${API_VERSION}\&format=text)
-AZURE_VM_SIZE=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/computer/vmSize?api-version=${API_VERSION}\&format=text)
+AZURE_VM_SIZE=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/vmSize?api-version=${API_VERSION}\&format=text)
 AZURE_VM_LOCATION=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/location?api-version=${API_VERSION}\&format=text)
 
 echo -e "===== AZURE INSTANCE METADATA ================================================
