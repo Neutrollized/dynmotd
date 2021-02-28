@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - extra metadata for GCP
 ### Changed
 - `jq` no longer a requirement
+- in Azure, the "Zone" metadata has been replaced with "Location"
+- suppressed some errors with installs
 
 ## [2.0.0] - 2021-02-27
 ### Added

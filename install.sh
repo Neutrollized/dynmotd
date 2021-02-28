@@ -7,13 +7,13 @@ DYNMOTD_CUSTOM_SCRIPTS_PATH='/etc/dynmotd.d'
 
 cp ./dynmotd ${DYNMOTD_BIN_PATH}/dynmotd
 chmod 755 ${DYNMOTD_BIN_PATH}/dynmotd
-ln -s ${DYNMOTD_BIN_PATH}/dynmotd ${DYNMOTD_BIN_PATH}/dm
+ln -s ${DYNMOTD_BIN_PATH}/dynmotd ${DYNMOTD_BIN_PATH}/dm 2>/dev/null
 
 echo "${DYNMOTD_BIN_PATH}/dynmotd" > /etc/profile.d/dynmotd.sh
 chmod 644 /etc/profile.d/dynmotd.sh
 
 mkdir -p ${DYNMOTD_CUSTOM_SCRIPTS_PATH}
-rm ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/00_*.sh
+rm ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/00_*.sh 2>/dev/null
 
 
 # check to see if it's a Raspberry Pi
