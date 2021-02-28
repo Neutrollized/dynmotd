@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME=$(uname -n)
+HOSTNAME=$(hostname -s)
 IP=$(hostname -I | awk '{print $1}')
 
 EXT_IP=$(curl -s ifconfig.me)
