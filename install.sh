@@ -42,4 +42,4 @@ then
 fi
 
 
-dynmotd
+${DYNMOTD_BIN_PATH}/dynmotd
