@@ -33,10 +33,10 @@ IPINFO_ORG=$(curl -s ipinfo.io/org | awk {'first = $1; $1=""; print $0'}|sed 's/
 if [[ 'Google LLC' = "${IPINFO_ORG}" && $(curl --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
 then
   cp ./00_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
-elif [ 'Amazon.com, Inc.' = "${IPINFO_ORG}" && $(curl --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
+elif [[ 'Amazon.com, Inc.' = "${IPINFO_ORG}" && $(curl --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
 then
   cp ./00_aws.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
-elif [ 'Microsoft Corporation' = "${IPINFO_ORG}" && $(curl --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '400' ]]
+elif [[ 'Microsoft Corporation' = "${IPINFO_ORG}" && $(curl --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '400' ]]
 then
   cp ./00_azure.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
