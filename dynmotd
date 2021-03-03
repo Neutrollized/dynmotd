@@ -3,17 +3,19 @@
 HOSTNAME=$(hostname -s)
 IP=$(hostname -I | awk '{print $1}')
 
-EXT_IP=$(curl -s ifconfig.me)
+EXT_IP=$(curl -s ipinfo.io/ip)
 EXT_IP=${EXT_IP:-None}
 
 #IP=$(getent hosts $(hostname -s) | awk '{print $1}')
 KERNEL=$(uname -r)
 
 #OS distro
-if [ -f /etc/redhat-release ]; then
-	OS_VERSION=$(cat /etc/redhat-release)
-elif [ -f /etc/debian_version ]; then
+if [ -f /etc/debian_version ]; then
 	OS_VERSION=$(lsb_release -ds)
+elif [ -f /etc/oracle-release ]; then
+	OS_VERSION=$(cat /etc/oracle-release)
+elif [ -f /etc/redhat-release ]; then
+	OS_VERSION=$(cat /etc/redhat-release)
 elif [ -f /etc/os-release ]; then
 	OS_VERSION=$(grep PRETTY_NAME /etc/os-release | awk -F '"' '{print $2}')
 else
