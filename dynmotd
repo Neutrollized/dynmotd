@@ -23,8 +23,9 @@ else
 fi
 
 
-CPU_COUNT=$(grep -c 'processor' /proc/cpuinfo)
-CPU_MODEL=$(grep 'model name' /proc/cpuinfo | uniq | awk -F ': ' {'print $2'})
+CPU_COUNT=$(lscpu | grep ^'CPU(s)' | awk -F ': ' {'print $2'} | xargs)
+CPU_VENDOR=$(lscpu | grep ^'Vendor ID' | awk -F ': ' {'print $2'} | xargs)
+CPU_MODEL=$(lscpu | grep ^'Model name' | awk -F ': ' {'print $2'} | xargs)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
@@ -54,12 +55,12 @@ RESET_COLORS="\e[0m"
 
 echo -e "
 ==============================================================================
- ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP} - ${EXT_IP}) ${RESET_COLORS}
+ ${COLOR_COLUMN}- Hostname${RESET_COLORS}...........: ${COLOR_VALUE} ${HOSTNAME} (${IP} / ${EXT_IP}) ${RESET_COLORS}
  ${COLOR_COLUMN}- OS version${RESET_COLORS}.........: ${COLOR_VALUE} ${OS_VERSION} ${RESET_COLORS}
  ${COLOR_COLUMN}- Kernel release${RESET_COLORS}.....: ${COLOR_VALUE} ${KERNEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Users${RESET_COLORS}..............: ${COLOR_VALUE} Currently $(users | wc -w) user(s) logged on ${RESET_COLORS}
 ==============================================================================
- ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU_COUNT} x ${CPU_MODEL} ${RESET_COLORS}
+ ${COLOR_COLUMN}- CPUs${RESET_COLORS}...............: ${COLOR_VALUE} ${CPU_COUNT} x ${CPU_VENDOR}/${CPU_MODEL} ${RESET_COLORS}
  ${COLOR_COLUMN}- Load average${RESET_COLORS}.......: ${COLOR_VALUE} ${LOAD1} - ${LOAD5} - ${LOAD15} (1-5-15 min) ${RESET_COLORS}
  ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}
  ${COLOR_COLUMN}- Swap${RESET_COLORS}...............: ${COLOR_VALUE} ${SWAP} (total-used-free) ${RESET_COLORS}

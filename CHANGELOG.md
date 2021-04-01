@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.5] - 2021-04-01
+### Changed
+- obtaining CPU info from `lscpu` rather than from `/proc/cpuinfo` as info for non-standard CPU types (i.e. Graviton2) won't necessarily show up in `/proc/cpuinfo`
+- CPU info includes chip vendor
+
 ## [2.0.4] - 2021-03-05
 ### Added
 - added verbostiy to the install script
