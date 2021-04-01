@@ -41,12 +41,12 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  myhostname (123.45.67.89 - 9.87.65.43)
+ -- Hostname...........:  myhostname (123.45.67.89 / 9.87.65.43)
  -- OS version.........:  Ubuntu 20.04.2 LTS
- -- Kernel release.....:  5.4.0-1037-gcp
+ -- Kernel release.....:  5.4.0-1040-gcp
  -- Users..............:  Currently 2 user(s) logged on
 ==============================================================================
- -- CPUs...............:  1 x Intel(R) Xeon(R) CPU @ 2.30GHz
+ -- CPUs...............:  1 x GenuineIntel/Intel(R) Xeon(R) CPU @ 2.30GHz
  -- Load average.......:  0.00 - 0.00 - 0.00 (1-5-15 min)
  -- Memory.............:  577Mi - 132Mi - 65Mi (total-used-free)
  -- Swap...............:  0B - 0B - 0B (total-used-free)
@@ -65,12 +65,12 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  raspberrypi (12.34.56.78 - None)
+ -- Hostname...........:  raspberrypi (12.34.56.78 / None)
  -- OS version.........:  Raspbian GNU/Linux 10 (buster)
- -- Kernel release.....:  4.19.97-v7l+
+ -- Kernel release.....:  5.10.11-v7l+
  -- Users..............:  Currently 3 user(s) logged on
 ==============================================================================
- -- CPUs...............:  4 x ARMv7 Processor rev 3 (v7l)
+ -- CPUs...............:  4 x ARM/Cortex-A72
  -- Load average.......:  0.04 - 0.05 - 0.09 (1-5-15 min)
  -- Memory.............:  3.8Gi - 178Mi - 3.0Gi (total-used-free)
  -- Swap...............:  99Mi - 0B - 99Mi (total-used-free)
