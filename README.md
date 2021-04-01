@@ -84,3 +84,23 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  -- docker.............:  active (running) since Sat 2020-05-23 13:44:56 EDT
 ==============================================================================
 ```
+
+```
+==============================================================================
+ -- Hostname...........:  ip-172-12-34-56 (172.12.34.56 / 3.45.67.89)
+ -- OS version.........:  Ubuntu 20.04.2 LTS
+ -- Kernel release.....:  5.4.0-1041-aws
+ -- Users..............:  Currently 4 user(s) logged on
+==============================================================================
+ -- CPUs...............:  2 x ARM/Neoverse-N1
+ -- Load average.......:  0.00 - 0.00 - 0.00 (1-5-15 min)
+ -- Memory.............:  952Mi - 167Mi - 486Mi (total-used-free)
+ -- Swap...............:  0B - 0B - 0B (total-used-free)
+ -- Processes..........:  143 running - 0 zombies
+ -- System uptime......:  0 days 5 hours 33 minutes 14 seconds
+===== AWS INSTANCE METADATA ==================================================
+ -- Instance ID........:  i-0123456789abcdef
+ -- Instance Type......:  t4g.micro
+ -- Zone...............:  ca-central-1d
+==============================================================================
+```
