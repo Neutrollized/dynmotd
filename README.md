@@ -41,7 +41,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  myhostname (123.45.67.89 / 9.87.65.43)
+ -- Hostname...........:  myhostname (123.45.67.89)
  -- OS version.........:  Ubuntu 20.04.2 LTS
  -- Kernel release.....:  5.4.0-1040-gcp
  -- Users..............:  Currently 2 user(s) logged on
@@ -65,7 +65,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  raspberrypi (12.34.56.78 / None)
+ -- Hostname...........:  raspberrypi (12.34.56.78)
  -- OS version.........:  Raspbian GNU/Linux 10 (buster)
  -- Kernel release.....:  5.10.11-v7l+
  -- Users..............:  Currently 3 user(s) logged on
@@ -87,7 +87,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
 ==============================================================================
- -- Hostname...........:  ip-172-12-34-56 (172.12.34.56 / 3.45.67.89)
+ -- Hostname...........:  ip-172-12-34-56 (172.12.34.56)
  -- OS version.........:  Ubuntu 20.04.2 LTS
  -- Kernel release.....:  5.4.0-1041-aws
  -- Users..............:  Currently 4 user(s) logged on

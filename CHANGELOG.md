@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.6] - 2021-04-21
+### Deprecated
+- I founds that more often than not, I didn't want my external IP to be shown so openly (i.e. when I want to use my server to show some demos), so I'm commenting out the `EXT_IP` that was added in v1.1.11
+
 ## [2.0.5] - 2021-04-01
 ### Changed
 - obtaining CPU info from `lscpu` rather than from `/proc/cpuinfo` as info for non-standard CPU types (i.e. Graviton2) won't necessarily show up in `/proc/cpuinfo`
