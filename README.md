@@ -56,6 +56,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  -- Project ID.........:  myproject-12345
  -- Machine Type.......:  f1-micro
  -- Preemptible........:  TRUE
+ -- VPC................:  default
  -- Zone...............:  us-east1-a
 ===== SERVICES ===============================================================
  -- docker.............:  active (running) since Mon 2020-07-20 02:08:09 UTC
