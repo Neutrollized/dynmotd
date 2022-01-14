@@ -53,6 +53,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  -- Processes..........:  109 running - 0 zombies
  -- System uptime......:  0 days 8 hours 0 minutes 6 seconds
 ===== GCP INSTANCE METADATA ==================================================
+ -- External IP........:  12.34.56.78
  -- Project ID.........:  myproject-12345
  -- Machine Type.......:  f1-micro
  -- Preemptible........:  TRUE
@@ -100,6 +101,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  -- Processes..........:  143 running - 0 zombies
  -- System uptime......:  0 days 5 hours 33 minutes 14 seconds
 ===== AWS INSTANCE METADATA ==================================================
+ -- External IP........:  None
  -- Instance ID........:  i-0123456789abcdef
  -- Instance Type......:  t4g.micro
  -- Zone...............:  ca-central-1d

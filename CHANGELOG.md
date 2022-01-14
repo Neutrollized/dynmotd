@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.8] - 2022-01-14
+### Added
+- External IP from GCP compute engine metadata (if exists)
+- External IP from AWS EC2 metadata (if exists)
+- External IP from Azure VM (if exists)
+
 ## [2.0.7] - 2021-11-13
 ### Added
 - VPC name from GCP compute engine metadata
