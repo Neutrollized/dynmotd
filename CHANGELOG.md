@@ -4,15 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2023-08-07
+### Added
+- Tuned active profile for RHEL only
+### Changed
+- reorganized/renamed files
+
 ## [2.0.9] - 2022-02-19
 ### Fixed
-- Adding a check for presence of `/etc/rpi-issue` as newer versions of Raspbian OS no longer reports as Raspbian in `/etc/os-release`
+- adding a check for presence of `/etc/rpi-issue` as newer versions of Raspbian OS no longer reports as Raspbian in `/etc/os-release`
 
 ## [2.0.8] - 2022-01-14
 ### Added
-- External IP from GCP compute engine metadata (if exists)
-- External IP from AWS EC2 metadata (if exists)
-- External IP from Azure VM (if exists)
+- external IP from GCP compute engine metadata (if exists)
+- external IP from AWS EC2 metadata (if exists)
+- external IP from Azure VM (if exists)
 
 ## [2.0.7] - 2021-11-13
 ### Added

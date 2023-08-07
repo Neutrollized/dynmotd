@@ -27,6 +27,9 @@ if [ $? -eq 0 ] || [ -f '/etc/rpi-issue' ]
 then
   # if you want to disable it afterwards, just rename the file so that id doesn't have an .sh extension (i.e .sh_disabled)
   cp ./00_raspberry_pi.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+elif [ -f '/etc/redhat-release' ]
+then 
+  cp ./00_rhel.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
 
 echo '  + checking for cloud provider status'
@@ -37,13 +40,13 @@ IPINFO_ORG=$(curl -s ipinfo.io/org | awk {'first = $1; $1=""; print $0'}|sed 's/
 
 if [[ 'Google LLC' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
 then
-  cp ./00_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+  cp ./01_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 elif [[ 'Amazon.com, Inc.' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
 then
-  cp ./00_aws.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+  cp ./01_aws.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 elif [[ 'Microsoft Corporation' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '400' ]]
 then
-  cp ./00_azure.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+  cp ./01_azure.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
 
 

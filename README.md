@@ -7,7 +7,7 @@ Dynamic MOTD for RHEL/Debian-based Linux distros
 I got the template for this off someone's repo many years ago, long before I got a GitHub account.  It was initially created for RHEL6, but I've made changes to it for RHEL7 as well as added my own banner on top.  I tried looking for the original so I could do a proper fork and give credit where credit is due, but there are now so many dynmotd repos on GitHub that it's honestly hard to figure out who I got it from.  In any case, you have my thanks and here's a *hat tip* to you, stranger.
 
 
-## Requirements:
+## Requirements
 For some of the data to be pulled and filtered successfully, make sure you have the following tools on your VM instance (should be standard on most Linux distributions, unless you have an insanely hardened image or something):
 - `curl`
 - `awk`
@@ -16,8 +16,7 @@ For some of the data to be pulled and filtered successfully, make sure you have 
 - `tr`
 
 
-## Installation:
-
+## Installation
 You can run the `install.sh` script as root/with sudo or if you prefer manually:
 
 ```
@@ -36,22 +35,27 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  5.   Create an optional folder (default: /etc/dynmotd.d) in which you can place custom scripts for checking additional items (file system, services, ports, etc. -- this is optional)
 ```
 
+### Additional Info
+Scripts in the `/etc/dynmotd.d` directory display additional info about the VM and the number prefix determines the order in which they are displayed.  I put *00* and *01* prefixes for OS and cloud-specific info respectively, but feel free to renumber them however you see fit. 
 
-## Sample outputs:
+
+## Sample outputs
 
 ```
 ==============================================================================
  -- Hostname...........:  myhostname (123.45.67.89)
- -- OS version.........:  Ubuntu 20.04.2 LTS
- -- Kernel release.....:  5.4.0-1040-gcp
+ -- OS version.........:  Red Hat Enterprise Linux release 8.8 (Ootpa)
+ -- Kernel release.....:  4.18.0-477.15.1.el8_8.x86_64
  -- Users..............:  Currently 2 user(s) logged on
 ==============================================================================
- -- CPUs...............:  1 x GenuineIntel/Intel(R) Xeon(R) CPU @ 2.30GHz
+ -- CPUs...............:  2 x GenuineIntel/Intel(R) Xeon(R) CPU @ 2.80GHz
  -- Load average.......:  0.00 - 0.00 - 0.00 (1-5-15 min)
- -- Memory.............:  577Mi - 132Mi - 65Mi (total-used-free)
+ -- Memory.............:  7.5Gi - 635Mi - 5.8Gi (total-used-free)
  -- Swap...............:  0B - 0B - 0B (total-used-free)
  -- Processes..........:  109 running - 0 zombies
- -- System uptime......:  0 days 8 hours 0 minutes 6 seconds
+ -- System uptime......:  5 days 21 hours 45 minutes 6 seconds
+===== RHEL INFO ==============================================================
+ -- Tuned profile......:  throughput-performance
 ===== GCP INSTANCE METADATA ==================================================
  -- External IP........:  12.34.56.78
  -- Project ID.........:  myproject-12345
@@ -60,8 +64,7 @@ You can run the `install.sh` script as root/with sudo or if you prefer manually:
  -- VPC................:  default
  -- Zone...............:  us-east1-a
 ===== SERVICES ===============================================================
- -- docker.............:  active (running) since Mon 2020-07-20 02:08:09 UTC
- -- jenkins............:  active (exited) since Mon 2020-07-20 02:08:09 UTC
+ -- docker.............:  active (running) since Mon 2023-07-20 02:08:09 UTC
 ==============================================================================
 ```
 
