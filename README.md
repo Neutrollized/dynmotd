@@ -59,7 +59,7 @@ Scripts in the `/etc/dynmotd.d` directory display additional info about the VM a
 ===== GCP INSTANCE METADATA ==================================================
  -- External IP........:  12.34.56.78
  -- Project ID.........:  myproject-12345
- -- Machine Type.......:  f1-micro
+ -- Machine Type.......:  n2-standard-2
  -- Preemptible........:  TRUE
  -- VPC................:  default
  -- Zone...............:  us-east1-a
