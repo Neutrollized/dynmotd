@@ -14,6 +14,7 @@ For some of the data to be pulled and filtered successfully, make sure you have 
 - `xargs`
 - `basename`
 - `tr`
+- `lsb-release`
 
 
 ## Installation
