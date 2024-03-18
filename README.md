@@ -15,6 +15,7 @@ For some of the data to be pulled and filtered successfully, make sure you have 
 - `basename`
 - `tr`
 - `lsb-release`
+- `figlet`
 
 
 ## Installation
