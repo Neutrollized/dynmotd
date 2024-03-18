@@ -1,0 +1,4 @@
+Amazon
+Azure
+Google
+Infomaniak
