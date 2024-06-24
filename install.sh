@@ -41,7 +41,7 @@ IPINFO_ORG=$(curl -s ipinfo.io/org | awk {'first = $1; $1=""; print $0'}|sed 's/
 if [[ 'Google LLC' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
 then
   cp ./01_gcp.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
-elif [[ 'Amazon.com, Inc.' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '200' ]]
+elif [[ 'Amazon.com, Inc.' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254 --header "X-aws-ec2-metadata-token: $(curl -s --request PUT "http://169.254.169.254/latest/api/token" --header "X-aws-ec2-metadata-token-ttl-seconds: 30")") == '200' ]]
 then
   cp ./01_aws.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 elif [[ 'Microsoft Corporation' = "${IPINFO_ORG}" && $(curl --max-time 1 --write-out %{http_code} -s --output /dev/null 169.254.169.254) == '400' ]]
