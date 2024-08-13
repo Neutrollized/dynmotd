@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2024-08-13
+### Added
+- extra system info if your system happens to be [WSL](https://learn.microsoft.com/en-us/windows/wsl/about)
+
 ## [3.1.1] - 2024-08-12
 ### Fixed
 - first checks for existence of `tuned-adm` before RHEL scripts are installed
