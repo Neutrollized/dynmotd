@@ -27,6 +27,9 @@ if [ $? -eq 0 ] || [ -f '/etc/rpi-issue' ]
 then
   # if you want to disable it afterwards, just rename the file so that id doesn't have an .sh extension (i.e .sh_disabled)
   cp ./00_raspberry_pi.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+elif [ -n $WSL_DISTRO_NAME ]
+then 
+  cp ./00_wsl.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 elif [ -f '/etc/redhat-release' ] && [ `which tuned-adm` ]
 then 
   cp ./00_rhel.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
