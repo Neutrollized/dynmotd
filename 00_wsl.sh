@@ -7,7 +7,7 @@
 #  WSL_DISTRO_NAME='not available as root user'
 #fi
 
-if [ -n ${WSL_DISTRO_NAME} ]
+if [ -n "${WSL_DISTRO_NAME}" ]
 then
   echo -e "===== WSL INFO ===============================================================
  ${COLOR_COLUMN}- WSL distro name${RESET_COLORS}....: ${COLOR_VALUE} ${WSL_DISTRO_NAME} ${RESET_COLORS}"
