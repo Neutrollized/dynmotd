@@ -21,15 +21,14 @@ rm ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/00_*.sh 2>/dev/null
 
 
 echo ' + detecting additional OS info'
+# always do this -- the logic of whether it will run resides in 00_wsl.sh
+cp ./00_wsl.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 # check to see if it's a Raspberry Pi
 cat /etc/os-release | grep -q 'Raspbian'
 if [ $? -eq 0 ] || [ -f '/etc/rpi-issue' ]
 then
   # if you want to disable it afterwards, just rename the file so that id doesn't have an .sh extension (i.e .sh_disabled)
   cp ./00_raspberry_pi.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
-elif [ -n ${WSL_DISTRO_NAME} ] && [ ${WSL_DISTRO_NAME} != '' ]
-then 
-  cp ./00_wsl.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 elif [ -f '/etc/redhat-release' ] && [ `which tuned-adm` ]
 then 
   cp ./00_rhel.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
