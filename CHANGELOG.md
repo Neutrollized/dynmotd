@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2025-02-06
+### Added
+- Raspberry Pi bootloader version info
+- Raspberry Pi GPU memory allocation
+
 ## [3.3.0] - 2024-09-20
 ### Fixed
 - added extra condition when detecting when OS is a WSL distro to remove some false positive results
