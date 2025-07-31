@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.6.1] - 2025-07-31
+### Fixed
+- Excluding `install.sh` from the background jobs count which shows up in the initial output during installation
+
 ## [3.6.0] - 2025-07-31
 ### Added
 - "Processes" now show the number of background jobs that are running as well
