@@ -29,6 +29,7 @@ CPU_MODEL=$(lscpu | grep ^'Model name' | awk -F ': ' {'print $2'} | xargs)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
+BG_JOBS=$(ps -eo user,pid,tty,stat,cmd --no-headers | awk '($4 !~ /\+$/ && $3 != "?")' | grep -v $(basename ${SHELL}) | wc -l)
 ZOMBIE=$(pgrep defunct | wc -l)
 
 #System load
@@ -64,7 +65,7 @@ echo -e "
  ${COLOR_COLUMN}- Load average${RESET_COLORS}.......: ${COLOR_VALUE} ${LOAD1} - ${LOAD5} - ${LOAD15} (1-5-15 min) ${RESET_COLORS}
  ${COLOR_COLUMN}- Memory${RESET_COLORS}.............: ${COLOR_VALUE} ${MEMORY} (total-used-free) ${RESET_COLORS}
  ${COLOR_COLUMN}- Swap${RESET_COLORS}...............: ${COLOR_VALUE} ${SWAP} (total-used-free) ${RESET_COLORS}
- ${COLOR_COLUMN}- Processes${RESET_COLORS}..........: ${COLOR_VALUE} ${PSA} running - ${ZOMBIE} zombies ${RESET_COLORS}
+ ${COLOR_COLUMN}- Processes${RESET_COLORS}..........: ${COLOR_VALUE} ${PSA} running - ${BG_JOBS} background - ${ZOMBIE} zombies ${RESET_COLORS}
  ${COLOR_COLUMN}- System uptime${RESET_COLORS}......: ${COLOR_VALUE} ${upDays} days ${upHours} hours ${upMins} minutes ${upSecs} seconds ${RESET_COLORS}"
 
 if [ -d ${CUSTOM_CHECKS_DIR} ] && [ ! -z "$(ls -A ${CUSTOM_CHECKS_DIR})" ]; then
