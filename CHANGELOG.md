@@ -5,9 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.6.3] - 2025-08-08
+### Fixed
+- updated `awk` script in `example/dynmotd.d/30_oracledb_services_check.sh` to properly output multi-word status
+
 ## [3.6.2] - 2025-08-08
 ### Added
-- Included Oracle Linux (OL) in `00_rhel.sh`'s output heading as OL is RHEL-based
+- included Oracle Linux (OL) in `00_rhel.sh`'s output heading as OL is RHEL-based
 - Oracle DB status check script, `example/dynmotd.d/30_oracledb_services_check.sh`
 
 ## [3.6.1] - 2025-07-31
