@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.6.4] - 2025-08-20
+### Added
+- added GCE image name to output of `01_gcp.sh`
+
 ## [3.6.3] - 2025-08-08
 ### Fixed
 - updated `awk` script in `example/dynmotd.d/30_oracledb_services_check.sh` to properly output multi-word status
