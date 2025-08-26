@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.6.5] - 2025-08-25
+### Added
+- added a random [fortune](https://en.wikipedia.org/wiki/Fortune_(Unix)) if the `fortune` command exists
+### Changed
+- extended width of output by 1 character ("=")
+
 ## [3.6.4] - 2025-08-20
 ### Added
 - added GCE image name to output of `01_gcp.sh`

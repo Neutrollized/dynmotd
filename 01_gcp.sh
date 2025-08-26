@@ -58,7 +58,7 @@ done <<< "$input_scopes" # Use here-string to feed the input
 GCP_ADDITIONAL_SCOPES=$(IFS=,; echo "${ADDITIONAL_SCOPE[*]}")
 
 
-echo -e "===== GCP INSTANCE METADATA ==================================================
+echo -e "===== GCP INSTANCE METADATA ===================================================
  ${COLOR_COLUMN}- External IP${RESET_COLORS}........: ${COLOR_VALUE} ${GCP_EXTERNAL_IP} ${RESET_COLORS}
  ${COLOR_COLUMN}- Project ID${RESET_COLORS}.........: ${COLOR_VALUE} ${GCP_PROJECT} ${RESET_COLORS}
  ${COLOR_COLUMN}- Machine Type${RESET_COLORS}.......: ${COLOR_VALUE} ${GCP_INSTANCE_MACHINE_TYPE} ${RESET_COLORS}

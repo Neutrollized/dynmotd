@@ -11,7 +11,7 @@ AZURE_VM_ID=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/meta
 AZURE_VM_SIZE=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/vmSize?api-version=${API_VERSION}\&format=text)
 AZURE_VM_LOCATION=$(curl -s -H Metadata:true --noproxy "*" http://169.254.169.254/metadata/instance/compute/location?api-version=${API_VERSION}\&format=text)
 
-echo -e "===== AZURE INSTANCE METADATA ================================================
+echo -e "===== AZURE INSTANCE METADATA =================================================
  ${COLOR_COLUMN}- External IP${RESET_COLORS}........: ${COLOR_VALUE} ${AZURE_VM_EXTERNAL_IP} ${RESET_COLORS}
  ${COLOR_COLUMN}- Resource Group${RESET_COLORS}.....: ${COLOR_VALUE} ${AZURE_RG} ${RESET_COLORS}
  ${COLOR_COLUMN}- VM ID${RESET_COLORS}..............: ${COLOR_VALUE} ${AZURE_VM_ID} ${RESET_COLORS}
