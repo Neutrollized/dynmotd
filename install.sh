@@ -53,11 +53,11 @@ fi
 
 
 echo ' + checking for fortune binary'
-# using type to check for existence of "fortune"
-if type "fortune" &> /dev/null
+if [ -x $(which fortune) ]
 then
   cp ./99_fortune.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
+
 
 echo '+ install complete!'
 ${DYNMOTD_BIN_PATH}/dynmotd
