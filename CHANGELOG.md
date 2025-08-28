@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.6.6] - 2025-08-27
+### Fixed
+- realized that `fortune` doesn't show up for root user (on Debian systems at least), ans so it doesn't copy over the `99_fortune.sh` as expected, so the workaround is to copy it anyway and handle the lack of `fortune` in the shell script itself at call time
+
 ## [3.6.5] - 2025-08-25
 ### Added
 - added a random [fortune](https://en.wikipedia.org/wiki/Fortune_(Unix)) if the `fortune` command exists

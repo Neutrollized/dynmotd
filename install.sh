@@ -52,11 +52,8 @@ then
 fi
 
 
-echo ' + checking for fortune binary'
-if [ -x $(which fortune) ]
-then
-  cp ./99_fortune.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
-fi
+echo ' + adding fortune...'
+cp ./99_fortune.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 
 
 echo '+ install complete!'
