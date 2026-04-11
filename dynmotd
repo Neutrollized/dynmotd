@@ -23,9 +23,9 @@ else
 fi
 
 
-CPU_COUNT=$(lscpu | grep ^'CPU(s)' | awk -F ': ' {'print $2'} | xargs)
-CPU_VENDOR=$(lscpu | grep ^'Vendor ID' | awk -F ': ' {'print $2'} | xargs)
-CPU_MODEL=$(lscpu | grep ^'Model name' | awk -F ': ' {'print $2'} | xargs)
+CPU_COUNT=$(lscpu | grep ^'CPU(s):' | awk -F ': ' {'print $2'} | xargs)
+CPU_VENDOR=$(lscpu | grep ^'Vendor ID:' | awk -F ': ' {'print $2'} | xargs)
+CPU_MODEL=$(lscpu | grep ^'Model name:' | awk -F ': ' {'print $2'} | xargs)
 MEMORY=$(free -h | grep "Mem" | awk '{print $2,"-",$3,"-",$4}')
 SWAP=$(free -h | grep "Swap" | awk '{print $2,"-",$3,"-",$4}')
 PSA=$(ps -Afl | wc -l)
