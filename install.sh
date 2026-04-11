@@ -32,6 +32,9 @@ then
 elif [ -f '/etc/redhat-release' ] && [ `which tuned-adm` ]
 then 
   cp ./00_rhel.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
+elif [ -f '/etc/dgx-release' ]
+then 
+  cp ./00_dgx_spark.sh ${DYNMOTD_CUSTOM_SCRIPTS_PATH}/.
 fi
 
 echo '  + checking for cloud provider status'
