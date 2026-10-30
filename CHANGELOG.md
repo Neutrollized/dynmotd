@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [3.7.2] - 2026-10-30
+### Fixed
+- Now shows only the most recent `DGX_OTA_VERSION`
+
 ## [3.7.1] - 2026-06-13
 ### Added
 - DGX Spark GPU utilization and temperature info

@@ -4,7 +4,7 @@
 # DGX_SWBUILD_VERSION indicates the base version that was installed from ISO image
 # DGX_OTA_VERSION indicates the latest version after over-the-air (OTA) updates
 
-DGX_VERSION=$(cat /etc/dgx-release | grep DGX_OTA_VERSION | awk -F'=' '{ print $2 }' | tr -d '"')
+DGX_VERSION=$(cat /etc/dgx-release | grep DGX_OTA_VERSION | tail -1 | awk -F'=' '{ print $2 }' | tr -d '"')
 DGX_GPU=$(nvidia-smi --query-gpu=name --format=noheader)
 DGX_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=noheader)
 DGX_UTIL=$(nvidia-smi --query-gpu=utilization.gpu --format=noheader)
